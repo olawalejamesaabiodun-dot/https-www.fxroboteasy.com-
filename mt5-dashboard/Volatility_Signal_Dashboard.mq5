@@ -371,7 +371,7 @@ void CreateRect(string name, int x, int y, int w, int h, color bg, color border)
    ObjectSetInteger(0, on, OBJPROP_ZORDER, 5);
   }
 
-void CreateText(string name, int x, int y, string text, color clr, int fs, bool clickable = false)
+void CreateText(string name, int x, int y, string text, color clr, int fs)
   {
    string on = PREF + name;
    if(ObjectFind(0, on) < 0)
@@ -387,7 +387,6 @@ void CreateText(string name, int x, int y, string text, color clr, int fs, bool 
    ObjectSetInteger(0, on, OBJPROP_SELECTABLE, false);
    ObjectSetInteger(0, on, OBJPROP_HIDDEN, true);
    ObjectSetInteger(0, on, OBJPROP_ZORDER, 10);
-   ObjectSetInteger(0, on, OBJPROP_CLICKABLE, clickable);
   }
 
 void SetText(string name, string text, color clr)
@@ -417,7 +416,7 @@ void CreateDashboard()
 
    CreateRect("bg", InpPanelX, InpPanelY, width, height, InpColBg, InpColBorder);
    CreateText("title", InpPanelX + 12, InpPanelY + 8,
-              "SIGNAL DASHBOARD — DIRECTION & STRENGTH", InpColTitle, InpFontSize, true);
+              "SIGNAL DASHBOARD — DIRECTION & STRENGTH", InpColTitle, InpFontSize);
    CreateText("info", InpPanelX + 12, InpPanelY + 8 + InpFontSize + 9,
               TFToString(InpTF) + "  |  loading...", InpColHeader, InpFontSize - 1);
    CreateText("header", InpPanelX + 12, InpPanelY + 8 + 2 * (InpFontSize + 10),
